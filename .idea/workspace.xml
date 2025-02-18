@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ec06212-ff82-418c-a1e2-752b2d6bdcfa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Dao/CoursDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Dao/EnrollementDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Dao/EtudiantsDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Dbutlis/ConnectionDb.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Models/Course.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Models/Etudiant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/edumanager/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletsControllers/HelloServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +22,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -50,7 +50,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Tomcat Server.Tomcat 11.0.2.executor": "Run",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Master",
     "kotlin-language-version-configured": "true",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
