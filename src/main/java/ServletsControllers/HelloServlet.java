@@ -1,4 +1,4 @@
-package com.example.edumanager;
+package ServletsControllers;
 
 import java.io.*;
 
