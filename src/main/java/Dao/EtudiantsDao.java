@@ -1,7 +1,6 @@
 package Dao;
 
 import Dbutlis.ConnectionDb;
-import Models.Course;
 import Models.Etudiant;
 
 import java.sql.*;
@@ -34,27 +33,22 @@ public class EtudiantsDao {
 
     public void modifierEtudiant(Etudiant etudiant) throws SQLException {
 
-          String sql="UPDATE student \n" +
-                  "SET name = ?, prenom = ?, email= ? ,datenaissance=? \n" +
-                  "WHERE id=? ;";
 
-          PreparedStatement statement=conn.prepareStatement(sql);
+        String query = "UPDATE student SET name = ?, prenom = ?, email = ?, datenaissance = ? WHERE id = ?";
+        PreparedStatement statement=conn.prepareStatement(query);
 
-          statement.setString(1,etudiant.getNom());
-          statement.setString(2,etudiant.getPrenom());
-          statement.setString(3,etudiant.getEmail());
-          statement.setString(4,etudiant.getDatenaissance());
-          statement.setInt(5,etudiant.getId());
-
-          statement.executeUpdate();
-
+            statement.setString(1,etudiant.getNom());
+            statement.setString(2,etudiant.getPrenom());
+            statement.setString(3,etudiant.getEmail());
+            statement.setString(4,etudiant.getDatenaissance());
+            statement.setInt(5,etudiant.getId());
+            statement.executeUpdate();
 
 
     }
 
-
     public void deleteEtudiant(int id) throws SQLException {
-        String sql="DELETE FROM etudiant WHERE id=?";
+        String sql="DELETE FROM student WHERE id=?";
         PreparedStatement statement=conn.prepareStatement(sql);
         statement.setInt(1,id);
         statement.executeUpdate();
@@ -74,6 +68,7 @@ public class EtudiantsDao {
          while(resultSet.next()){
 
              etudiant=new Etudiant(
+                     resultSet.getInt("id"),
                      resultSet.getString("name"),
                      resultSet.getString("prenom"),
                      resultSet.getString("email"),
@@ -90,7 +85,7 @@ public class EtudiantsDao {
 
     public Etudiant getStudient(int id) throws SQLException {
 
-          String sql="SELECT * FROM etudiant WHERE id=?";
+          String sql="SELECT * FROM student WHERE id=?";
           PreparedStatement statement=conn.prepareStatement(sql);
 
            statement.setInt(1,id);
@@ -101,6 +96,7 @@ public class EtudiantsDao {
             Etudiant etudiant=null;
            if(resultSet.next()){
                 etudiant=new Etudiant(
+                        resultSet.getInt("id"),
                         resultSet.getString("name"),
                         resultSet.getString("prenom"),
                         resultSet.getString("email"),

@@ -14,7 +14,7 @@
 
 formulaire Ajouter
 
-<form action="students" method="POST">
+<form action="etudiants" method="POST">
 
     <input type="hidden" name="page" value="ajouter" >
 
