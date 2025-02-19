@@ -1,12 +1,10 @@
 package Dao;
 
 import Dbutlis.ConnectionDb;
+import Models.Course;
 import Models.Etudiant;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +20,7 @@ public class EtudiantsDao {
 
 
     public void ajouterEtudiant(Etudiant etudiant) throws SQLException {
-        String sql="insert into etudiant values(?,?,?,?)";
+        String sql="INSERT INTO student(name,prenom,email,datenaissance) VALUES(?,?,?,?)";
         PreparedStatement statement=conn.prepareStatement(sql);
 
         statement.setString(1,etudiant.getNom());
@@ -34,28 +32,81 @@ public class EtudiantsDao {
 
     }
 
-    public void modifierEtudiant(Etudiant etudiant) {
+    public void modifierEtudiant(Etudiant etudiant) throws SQLException {
 
-          String sql="SELECT * FROM etudiant WHERE id=?";
+          String sql="UPDATE student \n" +
+                  "SET name = ?, prenom = ?, email= ? ,datenaissance=? \n" +
+                  "WHERE id=? ;";
+
+          PreparedStatement statement=conn.prepareStatement(sql);
+
+          statement.setString(1,etudiant.getNom());
+          statement.setString(2,etudiant.getPrenom());
+          statement.setString(3,etudiant.getEmail());
+          statement.setString(4,etudiant.getDatenaissance());
+          statement.setInt(5,etudiant.getId());
+
+          statement.executeUpdate();
+
 
 
     }
 
 
-    public void deleteEtudiant(int id) {
-
+    public void deleteEtudiant(int id) throws SQLException {
+        String sql="DELETE FROM etudiant WHERE id=?";
+        PreparedStatement statement=conn.prepareStatement(sql);
+        statement.setInt(1,id);
+        statement.executeUpdate();
     }
 
-    public List<Etudiant> getStudients() {
+    public List<Etudiant> getStudients() throws SQLException {
          List <Etudiant> etudiants = new ArrayList();
+         Etudiant etudiant=null;
 
+
+         String sql="SELECT * FROM student";
+         PreparedStatement statement = conn.prepareStatement(sql);
+         statement.executeQuery();
+
+         ResultSet resultSet=statement.getResultSet();
+
+         while(resultSet.next()){
+
+             etudiant=new Etudiant(
+                     resultSet.getString("name"),
+                     resultSet.getString("prenom"),
+                     resultSet.getString("email"),
+                     resultSet.getString("datenaissance"));
+
+             etudiants.add(etudiant);
+         }
 
          return etudiants;
     }
 
-    public Etudiant getStudient(int id) {
 
-        Etudiant etudiant=new Etudiant("name","dfe","test","test");
+
+
+    public Etudiant getStudient(int id) throws SQLException {
+
+          String sql="SELECT * FROM etudiant WHERE id=?";
+          PreparedStatement statement=conn.prepareStatement(sql);
+
+           statement.setInt(1,id);
+
+           ResultSet resultSet=statement.executeQuery();
+
+
+            Etudiant etudiant=null;
+           if(resultSet.next()){
+                etudiant=new Etudiant(
+                        resultSet.getString("name"),
+                        resultSet.getString("prenom"),
+                        resultSet.getString("email"),
+                        resultSet.getString("datenaissance"));
+           }
+
 
         return etudiant;
 

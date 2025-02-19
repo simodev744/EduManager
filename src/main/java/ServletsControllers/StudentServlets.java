@@ -34,21 +34,38 @@ private EtudiantsDao etudiantsDao;
         switch (action){
             case "add": ajouter(req,resp);
                 break;
-            case "update": modifier(req,resp);
+            case "update":
+                try {
+                    modifier(req,resp);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
                 break;
-            case "delete": supprimer(req,resp);
+            case "delete":
+                try {
+                    supprimer(req,resp);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+
                 break;
-                default: afficher(req,resp);
+                default:
+                    try {
+                        afficher(req,resp);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+
         }
     }
 
-    private void afficher(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    private void afficher(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, SQLException {
 
         etudiantsDao.getStudients();
         req.getRequestDispatcher("/student/studentList.jsp").forward(req,resp);
     }
 
-    private void supprimer(HttpServletRequest req, HttpServletResponse resp) {
+    private void supprimer(HttpServletRequest req, HttpServletResponse resp) throws SQLException {
 
         int id= Integer.parseInt(req.getParameter("id"));
         etudiantsDao.deleteEtudiant(id);
@@ -56,7 +73,10 @@ private EtudiantsDao etudiantsDao;
 
     }
 
-    private void modifier(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    private void modifier(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, SQLException {
+
+        int id= Integer.parseInt(req.getParameter("id"));
+        Etudiant etudiant=etudiantsDao.getStudient(id);
         req.getRequestDispatcher("/student/ModifierEtudiant.jsp").forward(req,resp);
     }
 
@@ -65,6 +85,7 @@ private EtudiantsDao etudiantsDao;
         req.getRequestDispatcher("/student/ajouterEtudiant.jsp").forward(req,resp);
 
     }
+
 
 
     @Override
@@ -93,7 +114,11 @@ private EtudiantsDao etudiantsDao;
 
        if(param.contains("modifier")){
 
-           etudiantsDao.modifierEtudiant(etudiant);
+           try {
+               etudiantsDao.modifierEtudiant(etudiant);
+           } catch (SQLException e) {
+               throw new RuntimeException(e);
+           }
 
            resp.sendRedirect("students?action=list");
 

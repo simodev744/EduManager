@@ -35,7 +35,7 @@ public class ConnectionDb {
                 "name VARCHAR(20)," +
                 "prenom VARCHAR(200)," +
                 "email VARCHAR(120)," +
-                "datenaissance DATE NOT NULL)";
+                "datenaissance VARCHAR(30))";
 
         stm.executeUpdate(studentTable);
 
