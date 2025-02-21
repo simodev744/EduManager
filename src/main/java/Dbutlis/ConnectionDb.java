@@ -14,7 +14,7 @@ public class ConnectionDb {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
 
-        Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/studentmanagement","root","");
+            Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/studentmanagement","root","");
 
         Statement stm=connection.createStatement();
 
