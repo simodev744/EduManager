@@ -1,37 +1,57 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Med
-  Date: 2/18/2025
-  Time: 3:07 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-    <title>Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter Étudiant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
+<div class="container">
+    <div class="form-container">
+        <h2 class="text-center mb-4">Ajouter un Étudiant</h2>
+        <form action="etudiants" method="POST">
+            <input type="hidden" name="page" value="ajouter">
 
-formulaire Ajouter
+            <div class="mb-3">
+                <label class="form-label">Nom</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
 
-<form action="etudiants" method="POST">
+            <div class="mb-3">
+                <label class="form-label">Prénom</label>
+                <input type="text" name="prenom" class="form-control" required>
+            </div>
 
-    <input type="hidden" name="page" value="ajouter" >
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
 
-    <input type="text" name="name"> <br>
+            <div class="mb-3">
+                <label class="form-label">Date de naissance</label>
+                <input type="date" name="datenaissance" class="form-control" required>
+            </div>
 
-    <input type="text" name="prenom">
+            <button type="submit" class="btn btn-primary w-100">Ajouter</button>
+        </form>
+    </div>
+</div>
 
-    <input type="text" name="email">
-
-    <input type="text" name="datenaissance">
-
-
-
-    <button type="submit" >Ajouter</button>
-
-</form>
-
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
