@@ -10,19 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ec06212-ff82-418c-a1e2-752b2d6bdcfa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Dao/CoursDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/CoursDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dbutlis/ConnectionDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dbutlis/ConnectionDb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Course.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ServletsControllers/CourseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletsControllers/CourseServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/course/AjouterCours.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/course/AjouterCours.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/course/ListCours.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/course/ListCours.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/course/ModifierCours.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/course/ModifierCours.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/student/ModifierEtudiant.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/student/ModifierEtudiant.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/student/ajouterEtudiant.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/student/ajouterEtudiant.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/student/studentList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/student/studentList.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,25 +70,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Tomcat Server.Tomcat 11.0.2.executor": "Run",
-    "git-widget-placeholder": "#3 on Yassine",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/najat/Desktop/Etudiants/EduManager",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 11.0.2.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#3 on Yassine&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/najat/Desktop/New folder (2)/filterdemo&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Med\IdeaProjects\Edumanager\conception" />
@@ -107,7 +98,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 11.0.2" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 11.0.2" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/Edumanager_war_exploded/etudiants" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/Edumanager_war_exploded/etudiants?action=add" />
       <deployment>
         <artifact name="Edumanager:war exploded">
           <settings>
@@ -215,7 +206,9 @@
       <workItem from="1739972046154" duration="8683000" />
       <workItem from="1740041168613" duration="12026000" />
       <workItem from="1740061504038" duration="6363000" />
-      <workItem from="1740126733276" duration="352000" />
+      <workItem from="1740126733276" duration="7371000" />
+      <workItem from="1740389601722" duration="1897000" />
+      <workItem from="1740396561218" duration="119000" />
     </task>
     <servers />
   </component>

@@ -31,10 +31,10 @@ public class CoursDao {
         ps.executeUpdate();
     }
 
-    public void supprimerCours(String course) throws SQLException, ClassNotFoundException {
+    public void supprimerCours(int Id) throws SQLException, ClassNotFoundException {
         String sql = "delete Course where id = ?";
         PreparedStatement ps = connction.prepareStatement(sql);
-        ps.setString(1, course);
+        ps.setInt(1, Id);
         ps.executeUpdate();
 
     }

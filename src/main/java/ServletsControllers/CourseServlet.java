@@ -32,7 +32,14 @@ public class CourseServlet extends HttpServlet {
         switch (action){
             case "ajouter": ajouter(request,response);
                 break;
-                case "modifier":modifier(request,response);
+                case "modifier":
+                    try {
+                        modifier(request,response);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    } catch (ClassNotFoundException e) {
+                        throw new RuntimeException(e);
+                    }
                     break;
                     case "supprimer":
                         try {
@@ -60,13 +67,19 @@ public class CourseServlet extends HttpServlet {
 
     private void supprimer(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException {
         int id = Integer.parseInt(request.getParameter("id"));
-        coursDao.supprimerCours("course");
+        coursDao.supprimerCours(id);
     }
 
-    private void modifier(HttpServletRequest request, HttpServletResponse response) {
+    private void modifier(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Course course = coursDao.getCourse(id);
+        request.setAttribute("course", course);
+        request.getRequestDispatcher("/course/ModifierCours.jsp");
     }
 
-    private void ajouter(HttpServletRequest request, HttpServletResponse response) {
+    private void ajouter(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/course/AjouterCours.jsp").forward(request,response);
+
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
