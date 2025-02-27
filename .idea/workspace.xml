@@ -10,22 +10,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ec06212-ff82-418c-a1e2-752b2d6bdcfa" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/cours-students/unenroll.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/CourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/CourseDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/EnrollementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/EnrollementDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Dao/EtudiantsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/EtudiantsDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dbutlis/ConnectionDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dbutlis/ConnectionDb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServletsControllers/CourseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletsControllers/CourseServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServletsControllers/EnrollementServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletsControllers/EnrollementServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ServletsControllers/StudentServlets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServletsControllers/StudentServlets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/student/ModifierEtudiant.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/student/ModifierEtudiant.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/student/ajouterEtudiant.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/student/ajouterEtudiant.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/student/studentList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/student/studentList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/cours-students/coursDetails.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/cours-students/coursDetails.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/cours-students/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/cours-students/enroll.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/course/add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/course/add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/course/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/course/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/course/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/course/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../Edumanager\exportToHTML" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -49,6 +63,9 @@
         <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -189,7 +206,10 @@
       <updated>1739801011095</updated>
       <workItem from="1739801012173" duration="2000" />
       <workItem from="1739956390894" duration="5787000" />
-      <workItem from="1739972046154" duration="8683000" />
+      <workItem from="1739972046154" duration="10672000" />
+      <workItem from="1740040562585" duration="18716000" />
+      <workItem from="1740127319285" duration="22470000" />
+      <workItem from="1740390237806" duration="717000" />
     </task>
     <servers />
   </component>

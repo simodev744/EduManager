@@ -9,9 +9,7 @@ import java.util.List;
 
 public class EtudiantsDao {
 
-
-
-       private Connection conn;
+     private Connection conn;
 
       public EtudiantsDao() throws SQLException, ClassNotFoundException {
          conn= ConnectionDb.getconnectiondb();
@@ -32,7 +30,6 @@ public class EtudiantsDao {
     }
 
     public void modifierEtudiant(Etudiant etudiant) throws SQLException {
-
 
         String query = "UPDATE student SET name = ?, prenom = ?, email = ?, datenaissance = ? WHERE id = ?";
         PreparedStatement statement=conn.prepareStatement(query);
@@ -57,8 +54,6 @@ public class EtudiantsDao {
     public List<Etudiant> getStudients() throws SQLException {
          List <Etudiant> etudiants = new ArrayList();
          Etudiant etudiant=null;
-
-
          String sql="SELECT * FROM student";
          PreparedStatement statement = conn.prepareStatement(sql);
          statement.executeQuery();
@@ -81,19 +76,12 @@ public class EtudiantsDao {
     }
 
 
-
-
     public Etudiant getStudient(int id) throws SQLException {
-
           String sql="SELECT * FROM student WHERE id=?";
           PreparedStatement statement=conn.prepareStatement(sql);
-
            statement.setInt(1,id);
-
            ResultSet resultSet=statement.executeQuery();
-
-
-            Etudiant etudiant=null;
+           Etudiant etudiant=null;
            if(resultSet.next()){
                 etudiant=new Etudiant(
                         resultSet.getInt("id"),

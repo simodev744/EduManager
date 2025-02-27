@@ -1,16 +1,15 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Med
-  Date: 2/20/2025
-  Time: 4:34 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+<head>
+    <title>Add New Course</title>
+</head>
+<body>
+<h2>Add a New Course</h2>
+<form action="courses" method="post">
+    <input type="hidden" name="action" value="save" />
+    Title: <input type="text" name="title" required /><br />
+    Description: <textarea name="description" required></textarea><br />
+    <input type="submit" value="Save" />
+</form>
+</body>
 </html>

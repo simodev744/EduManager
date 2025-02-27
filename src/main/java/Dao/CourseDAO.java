@@ -1,4 +1,4 @@
-
+package Dao;
 
 import Dbutlis.ConnectionDb;
 import Models.Course;
@@ -16,9 +16,9 @@ public class CourseDAO {
     }
 
 
-    // Save a new course
+
     public void save(Course course) {
-        String query = "INSERT INTO courses (title, description) VALUES (?, ?)";
+        String query = "INSERT INTO course (title, description) VALUES (?, ?)";
 
         try (
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -32,36 +32,36 @@ public class CourseDAO {
         }
     }
 
-    // Update an existing course
+
     public void update(Course course) {
-        String query = "UPDATE courses SET description = ? WHERE title = ?";
+        String query = "UPDATE course SET description = ?,title=? WHERE id = ?";
 
         try (
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                preparedStatement.setString(1, course.getDescription());
+                preparedStatement.setString(2, course.getTitle());
+                preparedStatement.setInt(3,course.getId());
+                preparedStatement.executeUpdate();
 
-            preparedStatement.setString(1, course.getDescription());
-            preparedStatement.setString(2, course.getTitle());
-
-            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    // Find all courses
     public List<Course> findAll() {
         List<Course> courses = new ArrayList<>();
-        String query = "SELECT * FROM courses";
+        String query = "SELECT * FROM course";
 
         try (
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
 
             while (resultSet.next()) {
+                int id = resultSet.getInt("id");
                 String title = resultSet.getString("title");
                 String description = resultSet.getString("description");
 
-                Course course = new Course(title, description);
+                Course course = new Course(id,title, description);
                 courses.add(course);
             }
         } catch (SQLException e) {
@@ -71,20 +71,24 @@ public class CourseDAO {
         return courses;
     }
 
-    // Find a course by title
-    public Course findByTitle(String title) {
-        String query = "SELECT * FROM courses WHERE title = ?";
+
+    public Course findById(int id) {
+        String query = "SELECT * FROM course WHERE id = ?";
         Course course = null;
 
         try (
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-            preparedStatement.setString(1, title);
+            preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+
                 String description = resultSet.getString("description");
+                String title = resultSet.getString("title");
                 course = new Course(title, description);
+                course.setId(id);
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -93,14 +97,14 @@ public class CourseDAO {
         return course;
     }
 
-    // Delete a course by title
-    public void delete(String title) {
-        String query = "DELETE FROM courses WHERE title = ?";
+
+    public void delete(int id) {
+        String query = "DELETE FROM course WHERE id = ?";
 
         try (
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-            preparedStatement.setString(1, title);
+            preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

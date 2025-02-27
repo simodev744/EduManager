@@ -1,7 +1,8 @@
-package Servlet;
+package ServletsControllers;
 
-import Dao.CoursDao;
+import Dao.CourseDAO;
 import Models.Course;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -10,70 +11,68 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
-@WebServlet("/CourseServlet")
+
+@WebServlet("/courses")
 public class CourseServlet extends HttpServlet {
 
-    private CoursDao courseDao;
+    private CourseDAO courseDAO = new CourseDAO();
 
-    @Override
-    public void init() throws ServletException {
-        try {
-            courseDao = new CoursDao();
-        } catch (SQLException | ClassNotFoundException e) {
-            throw new ServletException(e);
-        }
+    public CourseServlet() throws SQLException, ClassNotFoundException {
+
     }
-
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, IOException {
         String action = request.getParameter("action");
-        try {
-            if ("delete".equals(action)) {
-                int id = Integer.parseInt(request.getParameter("id"));
-                courseDao.deleteCourse(id);
-                response.sendRedirect("CourseServlet");
-            } else if ("edit".equals(action)) {
-                int id = Integer.parseInt(request.getParameter("id"));
-                Course course = courseDao.getCourse(id);
+        if (action == null || action.isEmpty()) {
+            request.setAttribute("courses", courseDAO.findAll());
+            System.out.println(courseDAO.findAll());
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/course/index.jsp");
+            dispatcher.forward(request, response);
+        }
+        else if (action.equals("edit")) {
+            int id = Integer.parseInt(request.getParameter("id"));
+            Course course = courseDAO.findById(id);
+            if (course != null) {
                 request.setAttribute("course", course);
-                request.getRequestDispatcher("edit.jsp").forward(request, response);
-            } else {
-                // Par défaut, liste des cours
-                List<Course> courses = courseDao.getCourses();
-                request.setAttribute("courses", courses);
-                request.getRequestDispatcher("index.jsp").forward(request, response);
-            }
-        } catch (SQLException e) {
-            throw new ServletException(e);
+                                }
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/course/edit.jsp");
+            dispatcher.forward(request, response);
+        } else if (action.equals("add")) {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/course/add.jsp");
+            dispatcher.forward(request, response);
+        }
+        else if (action.equals("delete")) {
+
+            int id = Integer.parseInt(request.getParameter("id"));
+            courseDAO.delete(id);
+
+            response.sendRedirect("courses");
+
         }
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        try {
-            if ("add".equals(action)) {
-                String title = request.getParameter("title");
-                String description = request.getParameter("description");
-                String instructor = request.getParameter("instructor");
-                Course course = new Course();
-                course.setTitle(title);
-                course.setDescription(description);
-                courseDao.ajouterCourse(course);
-            } else if ("update".equals(action)) {
-                int id = Integer.parseInt(request.getParameter("id"));
-                String title = request.getParameter("title");
-                String description = request.getParameter("description");
-                Course course = new Course(id, title, description);
-                courseDao.modifierCourse(course);
-            }
-            response.sendRedirect("CourseServlet");
-        } catch (SQLException e) {
-            throw new ServletException(e);
+
+        if (action.equals("save")) {
+
+            int id = Integer.parseInt(request.getParameter("id"));
+            String title = request.getParameter("title");
+            String description = request.getParameter("description");
+            Course course = new Course(title, description);
+            course.setId(id);
+            courseDAO.save(course);
+            response.sendRedirect("courses");
+
+        } else if (action.equals("update")) {
+            int id = Integer.parseInt(request.getParameter("id"));
+            String title = request.getParameter("title");
+            String description = request.getParameter("description");
+            Course course = new Course(id,title, description);
+            courseDAO.update(course);
+            response.sendRedirect("courses");
         }
     }
 }

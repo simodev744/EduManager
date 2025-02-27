@@ -41,7 +41,6 @@ public class ConnectionDb {
 
         //course-student
 
-
         String coursestudent="CREATE TABLE IF NOT EXISTS coursestudent(" +
                 "id INT PRIMARY KEY AUTO_INCREMENT," +
                 "courseId INT," +

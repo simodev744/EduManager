@@ -22,26 +22,22 @@ public class StudentServlets extends HttpServlet {
     public void init() throws ServletException {
         try {
             etudiantsDao = new EtudiantsDao();
-        } catch (SQLException | ClassNotFoundException e) {
+            }
+        catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-
         String action = req.getParameter("action");
-
         if (action == null) {
             try {
                 afficher(req, resp);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-
         }
-
         switch (action) {
             case "add":
                 ajouter(req, resp);
@@ -124,24 +120,18 @@ public class StudentServlets extends HttpServlet {
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
-
                 resp.sendRedirect("etudiants");
             }
-
             if (param.contains("modifier")) {
-
-
-
                 System.out.println(etudiant);
 
                 try {
                     int id=Integer.parseInt(req.getParameter("id"));
                      etudiant.setId(id);
                      etudiantsDao.modifierEtudiant(etudiant);
-                } catch (SQLException e) {
+                    } catch (SQLException e) {
                     throw new RuntimeException(e);
-                }
-
+                    }
                 resp.sendRedirect("etudiants");
 
             }

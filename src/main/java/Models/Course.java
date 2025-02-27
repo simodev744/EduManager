@@ -5,19 +5,34 @@ package Models;
 public class Course {
 
     private int id;
-    private String name;
+    private String title;
     private String description;
 
-    public Course(int id, String name, String description) {
+
+    public Course(int id, String title, String description) {
         this.id = id;
-        this.name = name;
+        this.title = title;
         this.description = description;
     }
 
-    public Course(String name, String description) {
-        this.name = name;
+    public Course(String title, String description) {
+        this.title = title;
         this.description = description;
     }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
+
+    public Course() {
+
+    }
+
 
     public int getId() {
         return id;
@@ -27,12 +42,12 @@ public class Course {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {
@@ -42,5 +57,4 @@ public class Course {
     public void setDescription(String description) {
         this.description = description;
     }
-
 }

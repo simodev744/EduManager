@@ -7,10 +7,19 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+<head>
+    <title>Title</title>
+</head>
+<body>
+Formulaire unrolllement d un cours d'un cours
+
+<form action="enrollement" method="post">
+    <input type="text" name="action" value="unenroll">
+    Etudiant: <input type="text" name="etudiantId"> <br>
+    Cours:    <input type="text" name="coursId">
+
+    <button type="submit">unroll</button>
+
+</form>
+</body>
 </html>
